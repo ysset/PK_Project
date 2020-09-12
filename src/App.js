@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import 'denali-css/css/denali.css'
+import 'denali-css/css/denali-dark-theme.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+import {getState} from "./redux/myReducer";
+import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {}
+  }
+
+  render() {
+    return (
+        <>
+          <div className={'denali-dark-theme'}>
+
+          </div>
+        </>
+    )
+
+  }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  state: getState(state)
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  //any async func :)
+  fetchData: fetch,
+}, dispatch)
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App);
