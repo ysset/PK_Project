@@ -1,12 +1,14 @@
 import React from 'react';
 import './App.css';
-import 'denali-css/css/denali.css'
-import 'denali-css/css/denali-dark-theme.css'
-
 
 import {getState} from "./redux/myReducer";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
+import AppBar from "./Components/AppBar/AppBar"
+import fetchData from "./redux/fetch";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Container from "@material-ui/core/Container";
+import Box from "@material-ui/core/Box";
 
 class App extends React.Component {
   constructor(props) {
@@ -16,13 +18,21 @@ class App extends React.Component {
 
   render() {
     return (
-        <>
-          <div className={'denali-dark-theme'}>
 
-          </div>
-        </>
+          <React.Fragment>
+            <CssBaseline/>
+              <Box style={{
+                height: '100vh',
+                background: '#37474f',
+              }}>
+                <Container maxWidth={"lg"}>
+                  <AppBar/>
+                </Container>
+                <hr size={'1'} color={'#546e7a'}/>
+              </Box>
+          </React.Fragment>
+
     )
-
   }
 }
 
@@ -32,7 +42,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   //any async func :)
-  fetchData: fetch,
+  fetchData: fetchData,
 }, dispatch)
 
 export default connect(

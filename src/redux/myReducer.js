@@ -9,6 +9,7 @@ const initialState = {
 
 export default function myReducer(state = initialState, action) {
 
+    // eslint-disable-next-line default-case
     switch (action.type) {
 
         case FETCH_DATA_SUCCESS:
