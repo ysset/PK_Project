@@ -5,26 +5,57 @@ import {
 
 const initialState = {
     data: [], // FROM FETCH
+    count: [
+        'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+        'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+        'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+        'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+        'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+        'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+        'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+        'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+        'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg'
+    ],
+    name: 'name',
+    authors: [
+        'Victor',
+        'Victor',
+        'Victor',
+        'Victor',
+        'Victor',
+        'Victor',
+    ],
+    urAuthors: [
+        'Andrei',
+        'Andrei',
+        'Andrei',
+        'Andrei',
+        'Andrei',
+        'Andrei',
+        'Andrei',
+    ],
+    views: 1500,
+    img: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
 }
 
 export default function myReducer(state = initialState, action) {
 
-    // eslint-disable-next-line default-case
     switch (action.type) {
 
         case FETCH_DATA_SUCCESS:
             return {
-                ...state,
                 pending: false,
                 data: action.data
             }
 
         case FETCH_DATA_ERROR:
             return {
-                ...state,
                 pending: false,
                 error: action.error
             }
+        default:
+            return state;
     }
 }
+
 export const getState = state => state
