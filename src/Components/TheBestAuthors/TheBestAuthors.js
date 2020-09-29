@@ -10,26 +10,36 @@ const TheBestAuthors = props => {
     return(
         <>
             <Grid
-                container
-                direction="row"
-                justify="flex-start"
+                item
+                direction="column"
+                justify="space-evenly"
                 alignItems="flex-start"
             >
                 <Grid
                     item
-                    sm={2}
+                    justify="center"
+                    alignItems="center"
+                    style={{
+                        width: 300
+                    }}
                 >
-                    <p style={{
+                    <h2 style={{
                         textAlign: "center",
                         color: "white",
                     }}>
                         The Best Authors
-                    </p>
+                    </h2>
 
+
+                </Grid>
+                <Grid
+                    item
+                    direction={"column"}
+                    justify={"center"}
+                >
                     <TheBestAuthorsCard
                         authors = {props.state.authors}
                     />
-
                 </Grid>
             </Grid>
         </>

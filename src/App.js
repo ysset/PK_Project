@@ -13,49 +13,72 @@ import AppBar from "./Components/AppBar/AppBar";
 import Interesting from "./Components/Intersting/interesting";
 import TheBestAuthors from "./Components/TheBestAuthors/TheBestAuthors";
 import UrAuthors from "./Components/urAuthors/UrAuthors";
+import {Grid} from "@material-ui/core";
+import HotFeed from "./Components/HotFeed/HotFeed";
+
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+    constructor(props) {
+        super(props);
+        this.state = {}
     }
-  }
 
-  render() {
-    console.log(this.props)
-    return (
-        <BrowserRouter>
-          <React.Fragment>
-            <CssBaseline/>
-            <Switch>
-              <Box style={{
-                minHeight: '100vh',
-                height: '100%',
-                background: '#37474f',
-              }}>
-                <Container maxWidth={"lg"}>
-                  <AppBar/>
-                </Container>
-                <hr size={'1'} color={'#546e7a'}/>
-                <Route path={'/'} component={Interesting}/>
-                <Route path={'/'} component={TheBestAuthors}/>
-                <Route path={'/'} component={UrAuthors}/>
-                <Route path={'/profile'} component={userProfile}/>
-              </Box>
-            </Switch>
-          </React.Fragment>
-        </BrowserRouter>
-    )
-  }
+    render() {
+        return (
+            <BrowserRouter>
+                <React.Fragment>
+                    <CssBaseline/>
+                    <Switch>
+                        <Box style={{
+                            minHeight: '100vh',
+                            height: '100%',
+                            background: '#141414',
+                        }}>
+                            <Container maxWidth={"lg"}>
+                                <AppBar/>
+                            </Container>
+                            <hr size={'1'} color={'#202020'}/>
+                            <Route exact path={'/'} component={Interesting}/>
+                            <div>
+                                <Grid
+                                    container
+                                    direction="row-reverse"
+                                    justify="center"
+                                    alignItems="flex-start"
+                                >
+                                    <Grid
+                                        container
+                                        sm={9}
+                                    >
+                                        <Route exact path={'/'} component={HotFeed}/>
+                                    </Grid>
+                                    <Grid
+                                        style={{
+                                            marginTop: 40,
+                                            width: 300,
+                                        }}
+                                    >
+                                        <Route exact path={'/'} component={TheBestAuthors}/>
+                                        <Route exact path={'/'} component={UrAuthors}/>
+                                    </Grid>
+                                </Grid>
+                            </div>
+                            <Route path={'/profile'} component={userProfile}/>
+                        </Box>
+                    </Switch>
+                </React.Fragment>
+            </BrowserRouter>
+        )
+    }
 }
 
 const mapStateToProps = state => ({
-  state: getState(state)
+    state: getState(state)
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  //any async func :)
-  fetchData: fetchData,
+    //any async func :)
+    fetchData: fetchData,
 }, dispatch)
 
 export default connect(

@@ -7,13 +7,13 @@ const UrAuthorsCard = props => {
     return (
         <>
             {props.urAuthors.map((author, index) => {
-
                 return (
                     <Grid
+                        key={index}
                         item
                         style={{
                             maxWidth: 300,
-                            minWidth:180,
+                            minWidth:200,
                             height: 30,
                             position:"relative",
                             borderRadius: 5,

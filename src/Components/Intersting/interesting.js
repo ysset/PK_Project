@@ -5,14 +5,16 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {Container} from "@material-ui/core";
 
-const Interesting = (props) => {
+const Interesting = props => {
     return (
-        <div>
+        <div style={{
+            background: '#171717'
+        }}>
             <InterestingCard
                 CardBackGround = {props.state.count}
             />
             <Container>
-                <hr size={'1'} color={'#546e7a'} style={{marginTop:10}}/>
+                <hr size={'1'} color={'#202020'} style={{marginTop:10}}/>
             </Container>
 
         </div>

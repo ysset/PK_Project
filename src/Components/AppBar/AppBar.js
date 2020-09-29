@@ -86,8 +86,6 @@ export default function PrimarySearchAppBar() {
 
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-
-
     const handleMobileMenuClose = () => {
         setMobileMoreAnchorEl(null);
     };
@@ -136,7 +134,7 @@ export default function PrimarySearchAppBar() {
         <div className={classes.grow}>
             <AppBar position="static"
                     style={{
-                        background: '#37474f',
+                        background: '#141414',
                         boxShadow: 'none',
                     }}>
                 <Toolbar>

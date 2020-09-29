@@ -1,19 +1,21 @@
 import React from "react";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-import makeStyles from "@material-ui/core/styles/makeStyles";
 
-const InterestingCard = props => {
+const HotFeedCard = props => {
 
-    const useStyles = makeStyles((theme) => ({
+    const useStyles = makeStyles(() => ({
         root: {
             flexGrow: 1,
+            paddingLeft: 200,
+            paddingRight: 200,
         },
         paper: {
             textAlign: 'center',
-            maxWidth: 150,
-            maxHeight: 160,
-            marginTop: 10
+            width: 175,
+            height: 300,
+            margin: 10
         },
         img: {
             borderRadius: 5,
@@ -25,17 +27,15 @@ const InterestingCard = props => {
     const classes = useStyles();
 
     return (
-
         <div>
             <Grid
                 container
-                direction={"row"}
-                justify={"space-evenly"}
-                alignItems={"center"}
-                aria-valuemax={5}
+                direction="row"
+                justify="space-around"
+                alignItems="center"
                 className={classes.root}
             >
-                {props.CardBackGround.map((content, index) => {
+                {props.HotFeedImg.map((content, index) => {
                     return (
                         <Grid
                             item
@@ -45,13 +45,13 @@ const InterestingCard = props => {
                                 <img alt={'interesting line'} src={content} className={classes.img}/>
                             </Paper>
                             <h3 style={{
-                                color: "white",
-                                width: 160,
-                                marginTop: 8,
-                                marginBottom: 0,
-                                marginLeft: 2,
+                                margin: 0,
+                                marginLeft: 4,
+                                textAlign: "center",
+                                color: "White",
+                                width: 185,
                             }}>
-                                Something Goood
+                                Some thing Goooood =)
                             </h3>
                         </Grid>
                     )
@@ -60,4 +60,4 @@ const InterestingCard = props => {
         </div>
     )
 }
-export default InterestingCard
+export default HotFeedCard
