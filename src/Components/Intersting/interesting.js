@@ -11,10 +11,14 @@ const Interesting = props => {
             background: '#171717'
         }}>
             <InterestingCard
-                CardBackGround = {props.state.count}
+                CardInfo={props.state.interestingCardFeed}
             />
             <Container>
-                <hr size={'1'} color={'#202020'} style={{marginTop:10}}/>
+                <hr
+                    size={'1'}
+                    color={'#202020'}
+                    style={{marginTop: 10}}
+                />
             </Container>
 
         </div>
@@ -26,8 +30,7 @@ const mapStateToProps = state => ({
     state: getState(state)
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch)
 
 export default connect(
     mapStateToProps,

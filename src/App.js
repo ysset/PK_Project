@@ -5,8 +5,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import {getState} from "./redux/myReducer";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
-import {userProfile} from './Components/Profile/userProfile'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import AppBar from "./Components/AppBar/AppBar";
@@ -15,7 +14,7 @@ import TheBestAuthors from "./Components/TheBestAuthors/TheBestAuthors";
 import UrAuthors from "./Components/urAuthors/UrAuthors";
 import {Grid} from "@material-ui/core";
 import HotFeed from "./Components/HotFeed/HotFeed";
-
+import Profile from "./Components/Profile/profile";
 
 class App extends React.Component {
     constructor(props) {
@@ -37,7 +36,9 @@ class App extends React.Component {
                             <Container maxWidth={"lg"}>
                                 <AppBar/>
                             </Container>
-                            <hr size={'1'} color={'#202020'}/>
+                            <hr size={'1'} color={'#202020'} style={{
+                                margin: 2
+                            }}/>
                             <Route exact path={'/'} component={Interesting}/>
                             <div>
                                 <Grid
@@ -48,6 +49,7 @@ class App extends React.Component {
                                 >
                                     <Grid
                                         container
+                                        item
                                         sm={9}
                                     >
                                         <Route exact path={'/'} component={HotFeed}/>
@@ -63,7 +65,7 @@ class App extends React.Component {
                                     </Grid>
                                 </Grid>
                             </div>
-                            <Route path={'/profile'} component={userProfile}/>
+                            <Route path={'/profile'} component={Profile}/>
                         </Box>
                     </Switch>
                 </React.Fragment>

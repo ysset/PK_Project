@@ -7,18 +7,13 @@ import TheBestAuthorsCard from "../Card/theBestAuthorsCard";
 
 const TheBestAuthors = props => {
 
-    return(
+    return (
         <>
             <Grid
                 item
-                direction="column"
-                justify="space-evenly"
-                alignItems="flex-start"
             >
                 <Grid
                     item
-                    justify="center"
-                    alignItems="center"
                     style={{
                         width: 300
                     }}
@@ -34,11 +29,9 @@ const TheBestAuthors = props => {
                 </Grid>
                 <Grid
                     item
-                    direction={"column"}
-                    justify={"center"}
                 >
                     <TheBestAuthorsCard
-                        authors = {props.state.authors}
+                        TheBestAuthors={props.state.TheBestAuthors}
                     />
                 </Grid>
             </Grid>
@@ -50,8 +43,7 @@ const mapStateToProps = state => ({
     state: getState(state)
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch)
 
 export default connect(
     mapStateToProps,

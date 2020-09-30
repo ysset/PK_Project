@@ -16,14 +16,14 @@ const HotFeed = props => {
         >
             <h1
                 style={{
-                    color:"white",
+                    color: "white",
                     margin: 5,
                 }}
             >
                 Hot Feed
             </h1>
             <HotFeedCard
-                HotFeedImg = {props.state.HotFeedImg}
+                HotFeed={props.state.HotFeed}
             />
         </Grid>
     )

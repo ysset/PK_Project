@@ -1,5 +1,5 @@
 import React from 'react';
-import { fade, makeStyles } from '@material-ui/core/styles';
+import {fade, makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -101,17 +101,17 @@ export default function PrimarySearchAppBar() {
     const renderMobileMenu = (
         <Menu
             anchorEl={mobileMoreAnchorEl}
-            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+            anchorOrigin={{vertical: 'top', horizontal: 'right'}}
             id={mobileMenuId}
             keepMounted
-            transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+            transformOrigin={{vertical: 'top', horizontal: 'right'}}
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
             <MenuItem>
                 <IconButton aria-label="show 11 new notifications" color="inherit">
                     <Badge badgeContent={0} color="secondary">
-                        <NotificationsIcon />
+                        <NotificationsIcon/>
                     </Badge>
                 </IconButton>
                 <p>Notifications</p>
@@ -123,7 +123,7 @@ export default function PrimarySearchAppBar() {
                     aria-haspopup="true"
                     color="inherit"
                 >
-                    <AccountCircle />
+                    <AccountCircle/>
                 </IconButton>
                 <NavLink to={'/Profile'}> Profile</NavLink>
             </MenuItem>
@@ -143,7 +143,7 @@ export default function PrimarySearchAppBar() {
                     </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
-                            <SearchIcon />
+                            <SearchIcon/>
                         </div>
                         <InputBase
                             placeholder="Search"
@@ -151,17 +151,17 @@ export default function PrimarySearchAppBar() {
                                 root: classes.inputRoot,
                                 input: classes.inputInput,
                             }}
-                            inputProps={{ 'aria-label': 'search' }}
+                            inputProps={{'aria-label': 'search'}}
                         />
                     </div>
-                    <div className={classes.grow} />
+                    <div className={classes.grow}/>
                     <div className={classes.sectionDesktop}>
                         <IconButton aria-label="show 17 new notifications" color="inherit">
                             <Badge badgeContent={0} color="secondary">
-                                <NotificationsIcon />
+                                <NotificationsIcon/>
                             </Badge>
                         </IconButton>
-                        <NavLink to={'/profile'} style={{ color: '#fff'}} >
+                        <NavLink to={'/profile'} style={{color: '#fff'}}>
                             <IconButton
                                 edge="end"
                                 aria-label="account of current user"
@@ -169,7 +169,7 @@ export default function PrimarySearchAppBar() {
                                 aria-haspopup="true"
                                 color="inherit"
                             >
-                                <AccountCircle />
+                                <AccountCircle/>
                             </IconButton>
                         </NavLink>
 
@@ -182,7 +182,7 @@ export default function PrimarySearchAppBar() {
                             onClick={handleMobileMenuOpen}
                             color="inherit"
                         >
-                            <MoreIcon />
+                            <MoreIcon/>
                         </IconButton>
                     </div>
                 </Toolbar>

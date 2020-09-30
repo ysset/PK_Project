@@ -1,51 +1,64 @@
 import React from "react";
-import photo from "../../photo/imgonline-com-ua-Resize-9HJl3wB5C1WcXd0.jpg";
 import {Grid} from "@material-ui/core";
+import {NavLink} from "react-router-dom";
+
+const handleCard = props => {
+    console.log(props.index)
+}
 
 const TheBestAuthorCard = props => {
-
     return (
         <div>
-            {props.authors.map((author, index) => {
+            {props.TheBestAuthors.map((content, index) => {
 
                 return (
-                    <Grid
-                        item
+                    <NavLink
+                        to={'/profile'}
+                        onClick={() => handleCard({content, index,})}
+                        key={index}
                         style={{
-                            maxWidth: 300,
-                            minWidth:180,
-                            height: 30,
-                            position:"relative",
-                            borderRadius: 5,
-                            margin: 6,
-                    }}>
-                        <img
-                            alt={'The best authors'}
-                            src={photo}
-                            style={{
-                                width: '100%',
-                                height: '100%',
-                                position: "absolute",
-                                borderRadius: 5
-                            }}/>
+                            textDecoration: 'none'
+                        }}
+                    >
                         <Grid
+                            key={index}
                             item
-                            container
-                            direction="row"
-                            justify="flex-end"
                             style={{
-                                position:"absolute",
-                            }}
-                        >
-                            <p
+                                maxWidth: 300,
+                                minWidth: 180,
+                                height: 30,
+                                position: "relative",
+                                borderRadius: 5,
+                                margin: 6,
+                            }}>
+                            <img
+                                alt={'The best authors'}
+                                src={content.cover}
                                 style={{
-                                    color:"black"
+                                    width: '100%',
+                                    height: '100%',
+                                    position: "absolute",
+                                    borderRadius: 5
+                                }}/>
+                            <Grid
+                                item
+                                container
+                                direction="row"
+                                justify="flex-end"
+                                style={{
+                                    position: "absolute",
                                 }}
                             >
-                                {author}
-                            </p>
+                                <p
+                                    style={{
+                                        color: "black"
+                                    }}
+                                >
+                                    {content.author}
+                                </p>
+                            </Grid>
                         </Grid>
-                    </Grid>
+                    </NavLink>
                 )
             })
             }

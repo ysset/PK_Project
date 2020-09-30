@@ -2,6 +2,11 @@ import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
+import {NavLink} from "react-router-dom";
+
+const handleCard = props => {
+    console.log(props.index)
+}
 
 const HotFeedCard = props => {
 
@@ -35,25 +40,34 @@ const HotFeedCard = props => {
                 alignItems="center"
                 className={classes.root}
             >
-                {props.HotFeedImg.map((content, index) => {
+                {props.HotFeed.map((content, index) => {
                     return (
-                        <Grid
-                            item
+                        <NavLink
+                            to={'/profile'}
+                            onClick={() => handleCard({content, index,})}
                             key={index}
+                            style={{
+                                textDecoration: 'none'
+                            }}
                         >
-                            <Paper className={classes.paper}>
-                                <img alt={'interesting line'} src={content} className={classes.img}/>
-                            </Paper>
-                            <h3 style={{
-                                margin: 0,
-                                marginLeft: 4,
-                                textAlign: "center",
-                                color: "White",
-                                width: 185,
-                            }}>
-                                Some thing Goooood =)
-                            </h3>
-                        </Grid>
+                            <Grid
+                                item
+                                key={index}
+                            >
+                                <Paper className={classes.paper}>
+                                    <img alt={'interesting line'} src={content.cover} className={classes.img}/>
+                                </Paper>
+                                <h3 style={{
+                                    margin: 0,
+                                    marginLeft: 4,
+                                    textAlign: "center",
+                                    color: "White",
+                                    width: 185,
+                                }}>
+                                    {content.massage}
+                                </h3>
+                            </Grid>
+                        </NavLink>
                     )
                 })}
             </Grid>

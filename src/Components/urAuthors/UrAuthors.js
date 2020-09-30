@@ -5,20 +5,16 @@ import {connect} from "react-redux";
 import {Grid} from "@material-ui/core";
 import UrAuthorsCard from "../Card/urAuthorsCard";
 
+
 const UrAuthors = props => {
 
-    return(
+    return (
         <>
             <Grid
                 item
-                direction="column"
-                justify="space-evenly"
-                alignItems="flex-start"
             >
                 <Grid
                     item
-                    justify="center"
-                    alignItems="center"
                     style={{
                         width: 300
                     }}
@@ -33,11 +29,9 @@ const UrAuthors = props => {
                 </Grid>
                 <Grid
                     item
-                    direction={"column"}
-                    justify={"center"}
                 >
                     <UrAuthorsCard
-                        urAuthors = {props.state.urAuthors}
+                        urAuthors={props.state.urAuthors}
                     />
                 </Grid>
 
@@ -51,8 +45,7 @@ const mapStateToProps = state => ({
     state: getState(state)
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch)
 
 export default connect(
     mapStateToProps,

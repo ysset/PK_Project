@@ -1,54 +1,163 @@
 import {FETCH_DATA_ERROR, FETCH_DATA_SUCCESS,} from './actions';
-import photo from '../photo/imgonline-com-ua-Resize-pZFnDYxCz6cjI63.jpg'
+import hotFeedPhoto from '../photo/imgonline-com-ua-Resize-pZFnDYxCz6cjI63.jpg'
+import theBestAuthors from '../photo/imgonline-com-ua-Resize-9HJl3wB5C1WcXd0.jpg'
 
 const initialState = {
     data: [], // FROM FETCH
 
-    count: [
-        'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-        'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-        'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-        'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-        'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-        'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-        'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-        'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-        'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-        'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+    interestingCardFeed: [
+        {
+            cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+            name: 'Something Goood',
+        },
+        {
+            cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+            name: 'Something Goood',
+        },
+        {
+            cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+            name: 'Something Goood',
+        },
+        {
+            cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+            name: 'Something Goood',
+        },
+        {
+            cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+            name: 'Something Goood',
+        },
+        {
+            cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+            name: 'Something Goood',
+        },
+        {
+            cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+            name: 'Something Goood',
+        },
+        {
+            cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+            name: 'Something Goood',
+        },
+        {
+            cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+            name: 'Something Goood',
+        },
+        {
+            cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+            name: 'Something Goood',
+        },
     ],
-    name: 'name',
-    authors: [
-        'Victor',
-        'Victor',
-        'Victor',
-        'Victor',
-        'Victor',
-        'Victor',
+    TheBestAuthors: [
+
+        {
+            author: 'Victor',
+            cover: theBestAuthors,
+        },
+        {
+            author: 'Victor',
+            cover: theBestAuthors,
+        },
+        {
+            author: 'Victor',
+            cover: theBestAuthors,
+        },
+        {
+            author: 'Victor',
+            cover: theBestAuthors,
+        },
+        {
+            author: 'Victor',
+            cover: theBestAuthors,
+        },
+        {
+            author: 'Victor',
+            cover: theBestAuthors,
+        },
+        {
+            author: 'Victor',
+            cover: theBestAuthors,
+        },
     ],
     urAuthors: [
-        'Andrei',
-        'Andrei',
-        'Andrei',
-        'Andrei',
-        'Andrei',
-        'Andrei',
-        'Andrei',
+
+        {
+            author: 'Andrei',
+            cover: theBestAuthors,
+        },
+        {
+            author: 'Andrei',
+            cover: theBestAuthors,
+        },
+        {
+            author: 'Andrei',
+            cover: theBestAuthors,
+        },
+        {
+            author: 'Andrei',
+            cover: theBestAuthors,
+        },
+        {
+            author: 'Andrei',
+            cover: theBestAuthors,
+        },
+        {
+            author: 'Andrei',
+            cover: theBestAuthors,
+        },
+        {
+            author: 'Andrei',
+            cover: theBestAuthors,
+        },
     ],
-    views: 1500,
-    img: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-    HotFeedImg: [
-        photo,
-        photo,
-        photo,
-        photo,
-        photo,
-        photo,
-        photo,
-        photo,
-        photo,
-        photo,
-        photo,
-        photo,
+    HotFeed: [
+        {
+            massage: 'Fuck Text',
+            cover: hotFeedPhoto,
+        },
+        {
+            massage: 'Fuck Text',
+            cover: hotFeedPhoto,
+        },
+        {
+            massage: 'Fuck Text',
+            cover: hotFeedPhoto,
+        },
+        {
+            massage: 'Fuck Text',
+            cover: hotFeedPhoto,
+        },
+        {
+            massage: 'Fuck Text',
+            cover: hotFeedPhoto,
+        },
+        {
+            massage: 'Fuck Text',
+            cover: hotFeedPhoto,
+        },
+        {
+            massage: 'Fuck Text',
+            cover: hotFeedPhoto,
+        },
+        {
+            massage: 'Fuck Text',
+            cover: hotFeedPhoto,
+        },
+        {
+            massage: 'Fuck Text',
+            cover: hotFeedPhoto,
+        },
+        {
+            massage: 'Fuck Text',
+            cover: hotFeedPhoto,
+        },
+        {
+            massage: 'Fuck Text',
+            cover: hotFeedPhoto,
+        },
+        {
+            massage: 'Fuck Text',
+            cover: hotFeedPhoto,
+        },
     ]
 }
 

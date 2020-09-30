@@ -2,10 +2,14 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {NavLink} from "react-router-dom";
+
+const handleCard = props => {
+    console.log(props.index)
+}
 
 const InterestingCard = props => {
-
-    const useStyles = makeStyles((theme) => ({
+    const useStyles = makeStyles(() => ({
         root: {
             flexGrow: 1,
         },
@@ -25,7 +29,6 @@ const InterestingCard = props => {
     const classes = useStyles();
 
     return (
-
         <div>
             <Grid
                 container
@@ -35,25 +38,36 @@ const InterestingCard = props => {
                 aria-valuemax={5}
                 className={classes.root}
             >
-                {props.CardBackGround.map((content, index) => {
+                {props.CardInfo.map((content, index,) => {
                     return (
-                        <Grid
-                            item
+                        <NavLink
+                            to={'/'}
+                            onClick={() => handleCard({content, index,})}
                             key={index}
+                            style={{
+                                textDecoration: 'none'
+                            }}
                         >
-                            <Paper className={classes.paper}>
-                                <img alt={'interesting line'} src={content} className={classes.img}/>
-                            </Paper>
-                            <h3 style={{
-                                color: "white",
-                                width: 160,
-                                marginTop: 8,
-                                marginBottom: 0,
-                                marginLeft: 2,
-                            }}>
-                                Something Goood
-                            </h3>
-                        </Grid>
+                            <Grid
+                                item
+                                style={{
+                                    position: "relative",
+                                }}
+                            >
+                                <Paper className={classes.paper}>
+                                    <img alt={'interesting line'} src={content.cover} className={classes.img}/>
+                                </Paper>
+                                <h3 style={{
+                                    color: "white",
+                                    width: 160,
+                                    marginTop: 8,
+                                    marginBottom: 0,
+                                    marginLeft: 2,
+                                }}>
+                                    {content.name}
+                                </h3>
+                            </Grid>
+                        </NavLink>
                     )
                 })}
             </Grid>
