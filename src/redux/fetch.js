@@ -1,13 +1,13 @@
-import {fetchDataError, fetchDataSuccess} from './actions';
+import {fetchDataError, fetchDataSuccess, fetchDataPending} from './actions';
 
 function fetchData(whatFetch) {
-
     return dispatch => {
-        fetch(whatFetch)
+        dispatch(fetchDataPending())
+        fetch(`http://localhost:5000/cards/${whatFetch}`)
             .then(res => res.json())
             .then(res => {
                 if (res.error) {
-                    throw(res.error);
+                    throw res.error;
                 }
                 dispatch(fetchDataSuccess(res));
                 return res

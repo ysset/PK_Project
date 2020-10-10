@@ -22,12 +22,23 @@ class App extends React.Component {
         this.state = {}
     }
 
+
+    componentDidMount = () => {
+        this.props.fetchData("interesting")
+        this.props.fetchData("hotFeed")
+        this.props.fetchData("theBestAuthors")
+    }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log(this.props.state.data)
+    }
+
     render() {
         return (
             <BrowserRouter>
                 <React.Fragment>
                     <CssBaseline/>
                     <Switch>
+
                         <Box style={{
                             minHeight: '100vh',
                             height: '100%',

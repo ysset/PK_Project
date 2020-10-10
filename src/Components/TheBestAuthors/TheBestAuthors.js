@@ -31,7 +31,7 @@ const TheBestAuthors = props => {
                     item
                 >
                     <TheBestAuthorsCard
-                        TheBestAuthors={props.state.TheBestAuthors}
+                        TheBestAuthors={props.state.data[2]}
                     />
                 </Grid>
             </Grid>

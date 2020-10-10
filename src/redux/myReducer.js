@@ -1,9 +1,10 @@
-import {FETCH_DATA_ERROR, FETCH_DATA_SUCCESS,} from './actions';
+import {FETCH_DATA_ERROR, FETCH_DATA_SUCCESS,FETCH_DATA_PENDING} from './actions';
 import hotFeedPhoto from '../photo/imgonline-com-ua-Resize-pZFnDYxCz6cjI63.jpg'
 import theBestAuthors from '../photo/imgonline-com-ua-Resize-9HJl3wB5C1WcXd0.jpg'
 
 const initialState = {
-    data: [], // FROM FETCH
+
+    data: [],// FROM FETCH
 
     interestingCardFeed: [
         {
@@ -158,22 +159,30 @@ const initialState = {
             massage: 'Fuck Text',
             cover: hotFeedPhoto,
         },
-    ]
+    ],
+    pending: false,
+    error: [],
 }
 
 export default function myReducer(state = initialState, action) {
 
     switch (action.type) {
 
+        case FETCH_DATA_PENDING:
+            return {
+                ...state,
+                pending: true
+            }
+
         case FETCH_DATA_SUCCESS:
             return {
-                pending: false,
-                data: action.data
+                ...state,
+                data: state.data.concat(action.data)
             }
 
         case FETCH_DATA_ERROR:
             return {
-                pending: false,
+                ...state,
                 error: action.error
             }
 

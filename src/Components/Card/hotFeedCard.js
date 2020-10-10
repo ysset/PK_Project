@@ -40,36 +40,37 @@ const HotFeedCard = props => {
                 alignItems="center"
                 className={classes.root}
             >
-                {props.HotFeed.map((content, index) => {
-                    return (
-                        <NavLink
-                            to={'/profile'}
-                            onClick={() => handleCard({content, index,})}
-                            key={index}
-                            style={{
-                                textDecoration: 'none'
-                            }}
-                        >
-                            <Grid
-                                item
+                {props.hotFeed ?
+                    props.hotFeed.hotFeed.map((content, index) => {
+                        return (
+                            <NavLink
+                                to={'/profile'}
+                                onClick={() => handleCard({content, index,})}
                                 key={index}
+                                style={{
+                                    textDecoration: 'none'
+                                }}
                             >
-                                <Paper className={classes.paper}>
-                                    <img alt={'interesting line'} src={content.cover} className={classes.img}/>
-                                </Paper>
-                                <h3 style={{
-                                    margin: 0,
-                                    marginLeft: 4,
-                                    textAlign: "center",
-                                    color: "White",
-                                    width: 185,
-                                }}>
-                                    {content.massage}
-                                </h3>
-                            </Grid>
-                        </NavLink>
-                    )
-                })}
+                                <Grid
+                                    item
+                                    key={index}
+                                >
+                                    <Paper className={classes.paper}>
+                                        <img alt={'interesting line'} src={content.cover} className={classes.img}/>
+                                    </Paper>
+                                    <h3 style={{
+                                        margin: 0,
+                                        marginLeft: 4,
+                                        textAlign: "center",
+                                        color: "White",
+                                        width: 185,
+                                    }}>
+                                        {content.massage}
+                                    </h3>
+                                </Grid>
+                            </NavLink>
+                        )
+                    }) : null}
             </Grid>
         </div>
     )

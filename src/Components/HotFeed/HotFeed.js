@@ -23,7 +23,7 @@ const HotFeed = props => {
                 Hot Feed
             </h1>
             <HotFeedCard
-                HotFeed={props.state.HotFeed}
+                hotFeed={props.state.data[1]}
             />
         </Grid>
     )
