@@ -8,35 +8,26 @@ import UrAuthorsCard from "../Card/urAuthorsCard";
 
 const UrAuthors = props => {
 
+
     return (
         <>
-            <Grid
-                item
-            >
-                <Grid
-                    item
-                    style={{
-                        width: 300
-                    }}
-                >
-                    <h2
+                <Grid item>
+                    <Grid
+                        item
                         style={{
+                            width: 300
+                        }}>
+                        <h2 style={{
                             textAlign: "center",
                             color: "white",
                         }}>
-                        Your Authors
-                    </h2>
+                            Your Authors
+                        </h2>
+                    </Grid>
+                    <Grid item>
+                        <UrAuthorsCard urAuthors={props.state.urAuthors}/>
+                    </Grid>
                 </Grid>
-                <Grid
-                    item
-                >
-                    <UrAuthorsCard
-                        urAuthors={props.state.urAuthors}
-                    />
-                </Grid>
-
-
-            </Grid>
         </>
     )
 }

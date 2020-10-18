@@ -14,9 +14,9 @@ const middleWares = [thunk];
 const store = createStore(myReducer, applyMiddleware(...middleWares))
 
 const app = (
-    <Provider store={store}>
-        <App/>
-    </Provider>
+        <Provider store={store}>
+            <App/>
+        </Provider>
 )
 
 ReactDOM.render(app, document.getElementById('root'));

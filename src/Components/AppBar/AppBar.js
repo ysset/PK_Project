@@ -90,7 +90,6 @@ export default function PrimarySearchAppBar() {
         setMobileMoreAnchorEl(null);
     };
 
-
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
     };
@@ -155,25 +154,25 @@ export default function PrimarySearchAppBar() {
                         />
                     </div>
                     <div className={classes.grow}/>
-                    <div className={classes.sectionDesktop}>
-                        <IconButton aria-label="show 17 new notifications" color="inherit">
-                            <Badge badgeContent={0} color="secondary">
-                                <NotificationsIcon/>
-                            </Badge>
-                        </IconButton>
-                        <NavLink to={'/profile'} style={{color: '#fff'}}>
-                            <IconButton
-                                edge="end"
-                                aria-label="account of current user"
-                                aria-controls={menuId}
-                                aria-haspopup="true"
-                                color="inherit"
-                            >
-                                <AccountCircle/>
+                        <div className={classes.sectionDesktop}>
+                            <IconButton aria-label="show 17 new notifications" color="inherit">
+                                <Badge badgeContent={0} color="secondary">
+                                    <NotificationsIcon/>
+                                </Badge>
                             </IconButton>
-                        </NavLink>
+                            <NavLink to={'/profile'} style={{color: '#fff'}}>
+                                <IconButton
+                                    edge="end"
+                                    aria-label="account of current user"
+                                    aria-controls={menuId}
+                                    aria-haspopup="true"
+                                    color="inherit"
+                                >
+                                    <AccountCircle/>
+                                </IconButton>
+                            </NavLink>
 
-                    </div>
+                        </div>
                     <div className={classes.sectionMobile}>
                         <IconButton
                             aria-label="show more"
