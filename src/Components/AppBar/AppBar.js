@@ -13,6 +13,11 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import {NavLink} from "react-router-dom";
+import {Button} from "@material-ui/core";
+import {getState} from "../../redux/myReducer";
+import {bindActionCreators} from "redux";
+import fetchData from "../../redux/fetch";
+import {connect} from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -80,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function PrimarySearchAppBar() {
+const PrimarySearchAppBar = props => {
     const classes = useStyles();
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -171,6 +176,9 @@ export default function PrimarySearchAppBar() {
                                     <AccountCircle/>
                                 </IconButton>
                             </NavLink>
+                            <Button onClick={() => props.fetchData("auth/vkontakte")}>
+                                Log in
+                            </Button>
 
                         </div>
                     <div className={classes.sectionMobile}>
@@ -190,3 +198,17 @@ export default function PrimarySearchAppBar() {
         </div>
     );
 }
+
+const mapStateToProps = state => ({
+    state: getState(state)
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    //any async func :)
+    fetchData: fetchData,
+}, dispatch)
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(PrimarySearchAppBar);

@@ -1,4 +1,4 @@
-import {FETCH_DATA_ERROR, FETCH_DATA_SUCCESS,FETCH_DATA_PENDING} from './actions';
+import {FETCH_DATA_ERROR, FETCH_DATA_PENDING, FETCH_DATA_SUCCESS} from './actions';
 import hotFeedPhoto from '../photo/imgonline-com-ua-Resize-pZFnDYxCz6cjI63.jpg'
 import theBestAuthors from '../photo/imgonline-com-ua-Resize-9HJl3wB5C1WcXd0.jpg'
 
@@ -165,7 +165,6 @@ const initialState = {
 }
 
 export default function myReducer(state = initialState, action) {
-
     switch (action.type) {
 
         case FETCH_DATA_PENDING:
@@ -177,7 +176,8 @@ export default function myReducer(state = initialState, action) {
         case FETCH_DATA_SUCCESS:
             return {
                 ...state,
-                data: state.data.concat(action.data)
+                ...state.data,
+                data: state.data.concat(action.data),
             }
 
         case FETCH_DATA_ERROR:

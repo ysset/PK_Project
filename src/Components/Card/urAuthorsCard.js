@@ -7,61 +7,60 @@ const handleCard = props => {
 }
 
 const UrAuthorsCard = props => {
-
     return (
         <>
-            {props.urAuthors ?
-                props.urAuthors.map((content, index) => {
-                    return (
-                        <NavLink
-                            to={'/profile'}
-                            onClick={() => handleCard({content, index,})}
+            {props.urAuthors !== undefined &&
+            props.urAuthors.map((content, index) => {
+                return (
+                    <NavLink
+                        to={'/profile'}
+                        onClick={() => handleCard({content, index,})}
+                        key={index}
+                        style={{
+                            textDecoration: 'none'
+                        }}
+                    >
+                        <Grid
                             key={index}
+                            item
                             style={{
-                                textDecoration: 'none'
-                            }}
-                        >
-                            <Grid
-                                key={index}
-                                item
+                                maxWidth: 300,
+                                minWidth: 200,
+                                height: 30,
+                                position: "relative",
+                                borderRadius: 5,
+                                margin: 6,
+                            }}>
+                            <img
+                                alt={'your authors'}
+                                src={content.cover}
                                 style={{
-                                    maxWidth: 300,
-                                    minWidth: 200,
-                                    height: 30,
-                                    position: "relative",
-                                    borderRadius: 5,
-                                    margin: 6,
-                                }}>
-                                <img
-                                    alt={'your authors'}
-                                    src={content.cover}
+                                    width: '100%',
+                                    height: '100%',
+                                    position: "absolute",
+                                    borderRadius: 5
+                                }}/>
+                            <Grid
+                                item
+                                container
+                                direction="row"
+                                justify="flex-end"
+                                style={{
+                                    position: "absolute",
+                                }}
+                            >
+                                <p
                                     style={{
-                                        width: '100%',
-                                        height: '100%',
-                                        position: "absolute",
-                                        borderRadius: 5
-                                    }}/>
-                                <Grid
-                                    item
-                                    container
-                                    direction="row"
-                                    justify="flex-end"
-                                    style={{
-                                        position: "absolute",
+                                        color: "black"
                                     }}
                                 >
-                                    <p
-                                        style={{
-                                            color: "black"
-                                        }}
-                                    >
-                                        {content.author}
-                                    </p>
-                                </Grid>
+                                    {content.author}
+                                </p>
                             </Grid>
-                        </NavLink>
-                    )
-                }) : null}
+                        </Grid>
+                    </NavLink>
+                )
+            })}
         </>
     )
 }

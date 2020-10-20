@@ -7,6 +7,7 @@ import {connect} from "react-redux";
 import {Grid} from "@material-ui/core";
 
 const HotFeed = props => {
+    console.log(props.state.data)
     return (
         <Grid
             container
@@ -24,6 +25,7 @@ const HotFeed = props => {
             </h1>
             <HotFeedCard
                 hotFeed={props.state.data[1]}
+                fetchData={() => props.fetchData("hotFeed")}
             />
         </Grid>
     )

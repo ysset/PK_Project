@@ -1,9 +1,9 @@
-import {fetchDataError, fetchDataSuccess, fetchDataPending} from './actions';
+import {fetchDataError, fetchDataPending, fetchDataSuccess} from './actions';
 
 function fetchData(whatFetch) {
     return dispatch => {
         dispatch(fetchDataPending())
-        fetch(`http://localhost:5000/cards/${whatFetch}`)
+        fetch(`https://pk.hitmarker.pro/api/${whatFetch}`)
             .then(res => res.json())
             .then(res => {
                 if (res.error) {

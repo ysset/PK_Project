@@ -37,39 +37,39 @@ const InterestingCard = props => {
                 aria-valuemax={5}
                 className={classes.root}
             >
-                {props.CardInfo ?
-                    props.CardInfo.interesting.map((content, index,) => {
-                        return (
-                            <NavLink
-                                to={'/profile'}
-                                onClick={() => handleCard({content, index,})}
-                                key={index}
+                {props.CardInfo !== undefined && props.CardInfo.interesting !== undefined &&
+                props.CardInfo.interesting.map((content, index,) => {
+                    return (
+                        <NavLink
+                            to={'/profile'}
+                            onClick={() => handleCard({content, index,})}
+                            key={index}
+                            style={{
+                                textDecoration: 'none'
+                            }}
+                        >
+                            <Grid
+                                item
                                 style={{
-                                    textDecoration: 'none'
+                                    position: "relative",
                                 }}
                             >
-                                <Grid
-                                    item
-                                    style={{
-                                        position: "relative",
-                                    }}
-                                >
-                                    <Paper className={classes.paper}>
-                                        <img alt={'interesting line'} src={content.cover} className={classes.img}/>
-                                    </Paper>
-                                    <h3 style={{
-                                        color: "white",
-                                        width: 160,
-                                        marginTop: 8,
-                                        marginBottom: 0,
-                                        marginLeft: 2,
-                                    }}>
-                                        {content.name}
-                                    </h3>
-                                </Grid>
-                            </NavLink>
-                        )
-                    }) : null}
+                                <Paper className={classes.paper}>
+                                    <img alt={'interesting line'} src={content.cover} className={classes.img}/>
+                                </Paper>
+                                <h3 style={{
+                                    color: "white",
+                                    width: 160,
+                                    marginTop: 8,
+                                    marginBottom: 0,
+                                    marginLeft: 2,
+                                }}>
+                                    {content.name}
+                                </h3>
+                            </Grid>
+                        </NavLink>
+                    )
+                })}
             </Grid>
         </div>
     )

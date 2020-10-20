@@ -16,8 +16,6 @@ import {Grid} from "@material-ui/core";
 import HotFeed from "./Components/HotFeed/HotFeed";
 import Profile from "./Components/Profile/profile";
 
-
-
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -28,10 +26,6 @@ class App extends React.Component {
         this.props.fetchData("interesting")
         this.props.fetchData("hotFeed")
         this.props.fetchData("theBestAuthors")
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        // console.log(this.props.state.data)
     }
 
     render() {
