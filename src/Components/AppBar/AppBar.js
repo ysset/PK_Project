@@ -12,7 +12,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import {NavLink} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import {Button} from "@material-ui/core";
 import {getState} from "../../redux/myReducer";
 import {bindActionCreators} from "redux";
@@ -176,10 +176,7 @@ const PrimarySearchAppBar = props => {
                                     <AccountCircle/>
                                 </IconButton>
                             </NavLink>
-                            <Button onClick={() => props.fetchData("auth/vkontakte")}>
-                                Log in
-                            </Button>
-
+                                <a href={"http://pk.hitmarker.pro/api/auth/vkontakte"}>log in</a>
                         </div>
                     <div className={classes.sectionMobile}>
                         <IconButton
