@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 import Button from "@material-ui/core/Button";
 import {Grid} from "@material-ui/core";
-const url = 'https://api.cloudinary.com/v1_1/dbhjalp68';
-const preset = 'PK_Project';
+import Input from "@material-ui/core/Input";
 
+const url = "https://pk.hitmarker.pro/api/upload"
 
 
 const Profile = () => {
@@ -16,15 +16,8 @@ const Profile = () => {
     };
 
     const onSubmit = async () => {
-        const formData = new FormData();
-        formData.append('file', image);
-        formData.append('upload_preset', preset);
         try {
-            const res = await axios.post(url, formData);
-            const imageUrl = res.data.secure_url;
-            const image = await axios.post('http://localhost:5000/upload', {
-                imageUrl
-            });
+            await axios.post(url, {image});
             setImage(image.data);
         } catch (err) {
             console.error(err);
@@ -33,25 +26,29 @@ const Profile = () => {
 
     return (
         <>
-            <div className='container'>
-                <h1 className='center red-text'>React Image Upload</h1>
+            <Grid
+                container
+                direction={"column"}
+                justify={"center"}
+                alignItems={"center"}
+            >
+                <h1 style={{color: "white"}}>React Image Upload</h1>
                 <div className='file-field input-field'>
                     <div className='btn'>
-                        <span style={{color: "white"}}>Browse</span>
-                        <input type='file' name='image' onChange={onChange} />
+                        <span style={{color: "white"}}>Browse </span>
+                        <Input style={{color: "white"}} type='file' name='image' onChange={onChange}/>
                     </div>
                     <Grid
+                        container
                         justify={"center"}
+                        alignItems={"center"}
                     >
-                        <Button style={{color: "white"}} onClick={onSubmit} >
+                        <Button style={{color: "white"}} onClick={onSubmit}>
                             upload
                         </Button>
                     </Grid>
-                    <div className='file-path-wrapper'>
-                        <input className='file-path validate' type='text' />
-                    </div>
                 </div>
-            </div>
+            </Grid>
         </>
     )
 }
