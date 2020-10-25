@@ -142,9 +142,15 @@ const PrimarySearchAppBar = props => {
                         boxShadow: 'none',
                     }}>
                 <Toolbar>
-                    <Typography className={classes.title} variant="h6" noWrap>
-                        RS {/*Reach Soul*/}
-                    </Typography>
+                    <Link to={"/"} style={{
+                        color: '#fff',
+                        textDecoration: "none",
+                    }}>
+                        <Typography className={classes.title} variant="h6" noWrap>
+                            RS {/*Reach Soul*/}
+                        </Typography>
+                    </Link>
+
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
                             <SearchIcon/>
@@ -165,7 +171,10 @@ const PrimarySearchAppBar = props => {
                                     <NotificationsIcon/>
                                 </Badge>
                             </IconButton>
-                            <NavLink to={'/profile'} style={{color: '#fff'}}>
+                            <NavLink to={'/profile'} style={{
+                                color: '#fff',
+                                textDecoration: "none",
+                            }}>
                                 <IconButton
                                     edge="end"
                                     aria-label="account of current user"
@@ -176,7 +185,20 @@ const PrimarySearchAppBar = props => {
                                     <AccountCircle/>
                                 </IconButton>
                             </NavLink>
-                                <a href={"http://pk.hitmarker.pro/api/auth/vkontakte"}>log in</a>
+                            <Button
+                                style={{
+                                    marginLeft: 25,
+                                }}
+                                size={"small"}
+                                variant={"contained"}
+                                color={"primary"}>
+                                <a
+                                    style={{
+                                        textDecoration: "none",
+                                        color: "white",
+                                    }}
+                                    href={"http://pk.hitmarker.pro/api/auth/vkontakte"}>log in</a>
+                            </Button>
                         </div>
                     <div className={classes.sectionMobile}>
                         <IconButton

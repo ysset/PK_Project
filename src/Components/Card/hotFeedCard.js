@@ -39,7 +39,7 @@ const HotFeedCard = props => {
                 alignItems="center"
                 className={classes.root}
             >
-                {props.hotFeed !== undefined && props.hotFeed.hotFeed !== undefined &&
+                {props.hotFeed !== undefined && props.hotFeed.hotFeed !== undefined ?
                 props.hotFeed.hotFeed.map((content, index) => {
                     return (
                         <NavLink
@@ -69,7 +69,7 @@ const HotFeedCard = props => {
                             </Grid>
                         </NavLink>
                     )
-                })}
+                }): () => window.location.reload(false)}
             </Grid>
         </div>
     )

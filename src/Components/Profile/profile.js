@@ -1,54 +1,84 @@
-import React, {useState} from 'react';
-import axios from 'axios';
-import Button from "@material-ui/core/Button";
-import {Grid} from "@material-ui/core";
-import Input from "@material-ui/core/Input";
+import React from 'react';
+import {Container, Grid, IconButton} from "@material-ui/core";
+import Box from "@material-ui/core/Box";
+import TextField from "@material-ui/core/TextField";
+import {makeStyles} from "@material-ui/core/styles";
+import ProfileContentCard from "../Card/profileContentCard";
 
-const url = "https://pk.hitmarker.pro/api/upload"
-
+const useStiles = makeStyles((theme) => ({
+    rootHatBox: {
+        position: "relative",
+        height: 200,
+    },
+    boxHatLogo: {
+        position: "absolute",
+        width: "95%",
+        height: 200,
+        borderRadius: 10,
+        background: "black",
+    },
+    boxSiteLogo:{
+        position:"absolute",
+        zIndex:2,
+    },
+    userLogo: {
+        background: "black",
+        maxWidth: 200,
+        maxHeight: 200,
+        borderRadius: 20,
+        justifyContent: "flex-end",
+    },
+    hatLogo:{
+        width: "100%",
+        borderRadius: 10,
+        height: 200,
+    },
+    rootContentGrid: {
+        width:"33%",
+        height: 175,
+    },
+    boxImageContent: {
+        paddingTop: 15,
+        paddingRight: 40,
+    },
+    imgContent: {
+        width: 125,
+        height: 150,
+        background: "black",
+        borderRadius: 20,
+    }
+}))
 
 const Profile = () => {
-
-    const [image, setImage] = useState('');
-
-    const onChange = e => {
-        setImage(e.target.files[0]);
-    };
-
-    const onSubmit = async () => {
-        try {
-            await axios.post(url, {image});
-            setImage(image.data);
-        } catch (err) {
-            console.error(err);
-        }
-    };
+    const classes = useStiles()
 
     return (
         <>
-            <Grid
-                container
-                direction={"column"}
-                justify={"center"}
-                alignItems={"center"}
-            >
-                <h1 style={{color: "white"}}>React Image Upload</h1>
-                <div className='file-field input-field'>
-                    <div className='btn'>
-                        <span style={{color: "white"}}>Browse </span>
-                        <Input style={{color: "white"}} type='file' name='image' onChange={onChange}/>
-                    </div>
+            <Container>
+                <Box className={classes.rootHatBox}>
+                    <Box className={classes.boxHatLogo}>
+                        <img className={classes.hatLogo}
+                            src={"https://res-console.cloudinary.com/dbhjalp68/thumbnails/v1/image/upload/v1603372282/YmdndHRlcHR6cWptdmtsNHdqMWs=/preview"}
+                            alt={"Author hatLogo"}/>
+                    </Box>
+
                     <Grid
+                        style={{position:"absolute"}}
                         container
-                        justify={"center"}
-                        alignItems={"center"}
+                        direction="row"
+                        justify="flex-end"
+                        alignItems="center"
                     >
-                        <Button style={{color: "white"}} onClick={onSubmit}>
-                            upload
-                        </Button>
+                    <img className={classes.userLogo}
+                         src={"https://res-console.cloudinary.com/dbhjalp68/thumbnails/v1/image/upload/v1603372282/YmdndHRlcHR6cWptdmtsNHdqMWs=/preview"}
+                         alt={"User logo"}/>
                     </Grid>
-                </div>
-            </Grid>
+                </Box>
+                <Grid >
+                    <TextField className={"Author text field"}/>
+                </Grid>
+                <ProfileContentCard/>
+            </Container>
         </>
     )
 }
