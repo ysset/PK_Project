@@ -20,7 +20,7 @@ import fetchData from "../../redux/fetch";
 import {connect} from "react-redux";
 
 const authLogIn = () => {
-    window.open("http://localHost:5000/auth/vkontakte", "_self")
+    window.open("http://pk.hitmarker.pro/api/auth/vkontakte", "_self")
 }
 
 const useStyles = makeStyles((theme) => ({

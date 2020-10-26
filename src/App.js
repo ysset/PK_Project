@@ -26,23 +26,22 @@ class App extends React.Component {
         }
     }
 
-    componentDidMount = async () => {
-        await fetch("http://localHost:5000/auth/vkontakte", {
+    componentDidMount = () => {
+        fetch("http://pk.hitmarker.pro/api/auth/login/success", {
             method: "GET",
-            // credentials: "include",
-            // headers: {
-            //     Accept: "application/json",
-            //     "Content-type": "application/json",
-            //     "Access-Control-Allow-Credentials": true,
-            // }
+            credentials: "include",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            }
         })
             .then(res =>{
                 if(res.status === 200) {
+                    console.log("res",res )
                     console.log("res",res.json())
                     return res.json()
                 };
                 throw new Error("Fail");
-
             })
             .then(res => {
                 this.setState({
