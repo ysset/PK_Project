@@ -19,6 +19,10 @@ import {bindActionCreators} from "redux";
 import fetchData from "../../redux/fetch";
 import {connect} from "react-redux";
 
+const authLogIn = () => {
+    window.open("http://localHost:5000/auth/vkontakte", "_self")
+}
+
 const useStyles = makeStyles((theme) => ({
     grow: {
         flexGrow: 1,
@@ -191,14 +195,9 @@ const PrimarySearchAppBar = props => {
                                 }}
                                 size={"small"}
                                 variant={"contained"}
-                                color={"primary"}>
-                                <a
-                                    style={{
-                                        textDecoration: "none",
-                                        color: "white",
-                                    }}
-                                    href={"http://pk.hitmarker.pro/api/auth/vkontakte"}>log in</a>
-                            </Button>
+                                color={"primary"}
+                                onClick={() => authLogIn()}
+                            >Log in</Button>
                         </div>
                     <div className={classes.sectionMobile}>
                         <IconButton

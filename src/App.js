@@ -19,13 +19,48 @@ import Profile from "./Components/Profile/profile";
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            user: {},
+            error: null,
+            authenticated: false
+        }
     }
 
-    componentDidMount = () => {
-        this.props.fetchData("interesting")
-        this.props.fetchData("hotFeed")
-        this.props.fetchData("theBestAuthors")
+    componentDidMount = async () => {
+        await fetch("http://localHost:5000/auth/vkontakte", {
+            method: "GET",
+            // credentials: "include",
+            // headers: {
+            //     Accept: "application/json",
+            //     "Content-type": "application/json",
+            //     "Access-Control-Allow-Credentials": true,
+            // }
+        })
+            .then(res =>{
+                if(res.status === 200) {
+                    console.log("res",res.json())
+                    return res.json()
+                };
+                throw new Error("Fail");
+
+            })
+            .then(res => {
+                this.setState({
+                    authenticated: true,
+                    user: res.user
+                });
+                console.log(this.state.user)
+            })
+            .catch(err => {
+                this.setState({
+                    authenticated: false,
+                    err: err
+                });
+                console.log("err", this.state.err)
+            });
+        this.props.fetchData("interesting");
+        this.props.fetchData("hotFeed");
+        this.props.fetchData("theBestAuthors");
     }
 
     render() {

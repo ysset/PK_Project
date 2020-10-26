@@ -6,48 +6,48 @@ const initialState = {
 
     data: [],// FROM FETCH
 
-    interestingCardFeed: [
-        {
-            cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-            name: 'Something Goood',
-        },
-        {
-            cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-            name: 'Something Goood',
-        },
-        {
-            cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-            name: 'Something Goood',
-        },
-        {
-            cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-            name: 'Something Goood',
-        },
-        {
-            cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-            name: 'Something Goood',
-        },
-        {
-            cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-            name: 'Something Goood',
-        },
-        {
-            cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-            name: 'Something Goood',
-        },
-        {
-            cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-            name: 'Something Goood',
-        },
-        {
-            cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-            name: 'Something Goood',
-        },
-        {
-            cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-            name: 'Something Goood',
-        },
-    ],
+    // interestingCardFeed: [
+    //     {
+    //         cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+    //         name: 'Something Goood',
+    //     },
+    //     {
+    //         cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+    //         name: 'Something Goood',
+    //     },
+    //     {
+    //         cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+    //         name: 'Something Goood',
+    //     },
+    //     {
+    //         cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+    //         name: 'Something Goood',
+    //     },
+    //     {
+    //         cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+    //         name: 'Something Goood',
+    //     },
+    //     {
+    //         cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+    //         name: 'Something Goood',
+    //     },
+    //     {
+    //         cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+    //         name: 'Something Goood',
+    //     },
+    //     {
+    //         cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+    //         name: 'Something Goood',
+    //     },
+    //     {
+    //         cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+    //         name: 'Something Goood',
+    //     },
+    //     {
+    //         cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
+    //         name: 'Something Goood',
+    //     },
+    // ],
     TheBestAuthors: [
 
         {
@@ -79,88 +79,90 @@ const initialState = {
             cover: theBestAuthors,
         },
     ],
-    urAuthors: [
-
-        {
-            author: 'Andrei',
-            cover: theBestAuthors,
-        },
-        {
-            author: 'Andrei',
-            cover: theBestAuthors,
-        },
-        {
-            author: 'Andrei',
-            cover: theBestAuthors,
-        },
-        {
-            author: 'Andrei',
-            cover: theBestAuthors,
-        },
-        {
-            author: 'Andrei',
-            cover: theBestAuthors,
-        },
-        {
-            author: 'Andrei',
-            cover: theBestAuthors,
-        },
-        {
-            author: 'Andrei',
-            cover: theBestAuthors,
-        },
-    ],
-    HotFeed: [
-        {
-            massage: 'Fuck Text',
-            cover: hotFeedPhoto,
-        },
-        {
-            massage: 'Fuck Text',
-            cover: hotFeedPhoto,
-        },
-        {
-            massage: 'Fuck Text',
-            cover: hotFeedPhoto,
-        },
-        {
-            massage: 'Fuck Text',
-            cover: hotFeedPhoto,
-        },
-        {
-            massage: 'Fuck Text',
-            cover: hotFeedPhoto,
-        },
-        {
-            massage: 'Fuck Text',
-            cover: hotFeedPhoto,
-        },
-        {
-            massage: 'Fuck Text',
-            cover: hotFeedPhoto,
-        },
-        {
-            massage: 'Fuck Text',
-            cover: hotFeedPhoto,
-        },
-        {
-            massage: 'Fuck Text',
-            cover: hotFeedPhoto,
-        },
-        {
-            massage: 'Fuck Text',
-            cover: hotFeedPhoto,
-        },
-        {
-            massage: 'Fuck Text',
-            cover: hotFeedPhoto,
-        },
-        {
-            massage: 'Fuck Text',
-            cover: hotFeedPhoto,
-        },
-    ],
+    // urAuthors: [
+    //
+    //     {
+    //         author: 'Andrei',
+    //         cover: theBestAuthors,
+    //     },
+    //     {
+    //         author: 'Andrei',
+    //         cover: theBestAuthors,
+    //     },
+    //     {
+    //         author: 'Andrei',
+    //         cover: theBestAuthors,
+    //     },
+    //     {
+    //         author: 'Andrei',
+    //         cover: theBestAuthors,
+    //     },
+    //     {
+    //         author: 'Andrei',
+    //         cover: theBestAuthors,
+    //     },
+    //     {
+    //         author: 'Andrei',
+    //         cover: theBestAuthors,
+    //     },
+    //     {
+    //         author: 'Andrei',
+    //         cover: theBestAuthors,
+    //     },
+    // ],
+    // HotFeed: [
+    //     {
+    //         massage: 'Fuck Text',
+    //         cover: hotFeedPhoto,
+    //     },
+    //     {
+    //         massage: 'Fuck Text',
+    //         cover: hotFeedPhoto,
+    //     },
+    //     {
+    //         massage: 'Fuck Text',
+    //         cover: hotFeedPhoto,
+    //     },
+    //     {
+    //         massage: 'Fuck Text',
+    //         cover: hotFeedPhoto,
+    //     },
+    //     {
+    //         massage: 'Fuck Text',
+    //         cover: hotFeedPhoto,
+    //     },
+    //     {
+    //         massage: 'Fuck Text',
+    //         cover: hotFeedPhoto,
+    //     },
+    //     {
+    //         massage: 'Fuck Text',
+    //         cover: hotFeedPhoto,
+    //     },
+    //     {
+    //         massage: 'Fuck Text',
+    //         cover: hotFeedPhoto,
+    //     },
+    //     {
+    //         massage: 'Fuck Text',
+    //         cover: hotFeedPhoto,
+    //     },
+    //     {
+    //         massage: 'Fuck Text',
+    //         cover: hotFeedPhoto,
+    //     },
+    //     {
+    //         massage: 'Fuck Text',
+    //         cover: hotFeedPhoto,
+    //     },
+    //     {
+    //         massage: 'Fuck Text',
+    //         cover: hotFeedPhoto,
+    //     },
+    // ],
     pending: false,
+    isAuth: false,
+    user:{},
     error: [],
 }
 
