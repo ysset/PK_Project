@@ -44,9 +44,10 @@ export function fetchDataError(error) {
         error: error
     }
 }
-export function fetchUserDataSuccess(userData) {
+export function fetchUserDataSuccess(userData, isAuth) {
     return {
         type: FETCH_USER_DATA,
-        userData: userData
+        userData: userData,
+        isAuth: isAuth
     }
 }

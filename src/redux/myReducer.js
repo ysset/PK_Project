@@ -74,7 +74,7 @@ export default function myReducer(state = initialState, action) {
             return {
                 ...state,
                 userData: action.userData.user,
-                isAuth: action.userData.authenticated
+                isAuth: action.userData.isAuth
             }
         default:
             return state;
