@@ -90,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const PrimarySearchAppBar = props => {
-    console.log("User data from state: ", this.props.state.userData);
+    console.log("User data from state: ", props.state.userData);
     const classes = useStyles();
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
