@@ -39,8 +39,8 @@ const HotFeedCard = props => {
                 alignItems="center"
                 className={classes.root}
             >
-                {props.hotFeed !== undefined && props.hotFeed.hotFeed !== undefined ?
-                props.hotFeed.hotFeed.map((content, index) => {
+                {props.hotFeed !== undefined ?
+                props.hotFeed.map((content, index) => {
                     return (
                         <NavLink
                             to={'/profile'}
@@ -55,7 +55,7 @@ const HotFeedCard = props => {
                                 key={index}
                             >
                                 <Paper className={classes.paper}>
-                                    <img alt={'interesting line'} src={content.cover} className={classes.img}/>
+                                    <img alt={'interesting line'} src={content.coverUrl} className={classes.img}/>
                                 </Paper>
                                 <h3 style={{
                                     margin: 0,
@@ -64,7 +64,7 @@ const HotFeedCard = props => {
                                     color: "White",
                                     width: 185,
                                 }}>
-                                    {content.massage}
+                                    {content.name}
                                 </h3>
                             </Grid>
                         </NavLink>

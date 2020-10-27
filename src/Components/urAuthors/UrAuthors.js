@@ -11,6 +11,7 @@ const UrAuthors = props => {
 
     return (
         <>
+            {props.state.isAuth &&
                 <Grid item>
                     <Grid
                         item
@@ -25,9 +26,10 @@ const UrAuthors = props => {
                         </h2>
                     </Grid>
                     <Grid item>
-                        <UrAuthorsCard urAuthors={props.state.urAuthors}/>
+                        <UrAuthorsCard urAuthors={props.state.userData.urAuthors}/>
                     </Grid>
                 </Grid>
+            }
         </>
     )
 }

@@ -11,7 +11,7 @@ const Interesting = props => {
             background: '#171717'
         }}>
             <InterestingCard
-                CardInfo={props.state.data[0]}
+                interesting={props.state.data.interesting}
             />
             <Container>
                 <hr

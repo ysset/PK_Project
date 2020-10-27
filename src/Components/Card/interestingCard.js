@@ -37,8 +37,8 @@ const InterestingCard = props => {
                 aria-valuemax={5}
                 className={classes.root}
             >
-                {props.CardInfo !== undefined && props.CardInfo.interesting !== undefined &&
-                props.CardInfo.interesting.map((content, index,) => {
+                {props.interesting !== undefined &&
+                props.interesting.map((content, index,) => {
                     return (
                         <NavLink
                             to={'/profile'}

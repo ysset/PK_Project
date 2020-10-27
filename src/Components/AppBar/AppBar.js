@@ -170,34 +170,40 @@ const PrimarySearchAppBar = props => {
                     </div>
                     <div className={classes.grow}/>
                         <div className={classes.sectionDesktop}>
-                            <IconButton aria-label="show 17 new notifications" color="inherit">
-                                <Badge badgeContent={0} color="secondary">
-                                    <NotificationsIcon/>
-                                </Badge>
-                            </IconButton>
-                            <NavLink to={'/profile'} style={{
-                                color: '#fff',
-                                textDecoration: "none",
-                            }}>
-                                <IconButton
-                                    edge="end"
-                                    aria-label="account of current user"
-                                    aria-controls={menuId}
-                                    aria-haspopup="true"
-                                    color="inherit"
-                                >
-                                    <AccountCircle/>
-                                </IconButton>
-                            </NavLink>
-                            <Button
-                                style={{
+                            {props.state.isAuth &&
+                                <>
+                                    <IconButton aria-label="show 17 new notifications" color="inherit">
+                                        <Badge badgeContent={0} color="secondary">
+                                            <NotificationsIcon/>
+                                        </Badge>
+                                    </IconButton>
+                                    <NavLink to={'/profile'} style={{
+                                        color: '#fff',
+                                        textDecoration: "none",
+                                    }}>
+                                        <IconButton
+                                            edge="end"
+                                            aria-label="account of current user"
+                                            aria-controls={menuId}
+                                            aria-haspopup="true"
+                                            color="inherit"
+                                        >
+                                            <AccountCircle/>
+                                        </IconButton>
+                                    </NavLink>
+                                </>
+                            }
+                            {!props.state.isAuth &&
+                                    <Button
+                                    style={{
                                     marginLeft: 25,
                                 }}
-                                size={"small"}
-                                variant={"contained"}
-                                color={"primary"}
-                                onClick={() => authLogIn()}
-                            >Log in</Button>
+                                    variant={"contained"}
+                                    color={"primary"}
+                                    onClick={() => authLogIn()}
+                                    >Log in</Button>
+                            }
+
                         </div>
                     <div className={classes.sectionMobile}>
                         <IconButton

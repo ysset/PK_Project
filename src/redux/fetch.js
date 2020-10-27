@@ -1,4 +1,12 @@
-import {fetchDataError, fetchDataPending, fetchDataSuccess, fetchUserDataSuccess} from './actions';
+import {
+    fetchDataError,
+    fetchDataPending,
+    fetchHotFeedDataSuccess,
+    fetchInterestingDataSuccess,
+    fetchTheBestAuthorsDataSuccess,
+    fetchYourAuthorsDataSuccess,
+    fetchUserDataSuccess
+} from './actions';
 
 function fetchData(whatFetch, options) {
     return dispatch => {
@@ -6,21 +14,19 @@ function fetchData(whatFetch, options) {
         fetch(`https://pk.hitmarker.pro/api/${whatFetch}`, options)
             .then(res => res.json())
             .then(res => {
-                if (res.error) {
-                    throw res.error;
-                }
-                dispatch(fetchDataSuccess(res));
-                return res
-            })
-            .then(res => {
+                if(res.hotFeed !== undefined) dispatch(fetchHotFeedDataSuccess(res.hotFeed));
+                if(res.interesting !== undefined) {
+                    dispatch(fetchInterestingDataSuccess(res.interesting))
+                };
+                if(res.theBestAuthors !== undefined) dispatch(fetchTheBestAuthorsDataSuccess(res.theBestAuthors));
+                if(res.yourAuthor !== undefined) dispatch(fetchYourAuthorsDataSuccess(res.yourAuthor))
                 if(res.user !== undefined) {
                     dispatch(fetchUserDataSuccess({
                         user: res.user,
                         authenticated: true,
                     }))
                 }
-                // authenticated: true,
-                // user: res.user
+                return res;
             })
             .catch(error => {
                 dispatch(fetchDataError(error));

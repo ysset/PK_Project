@@ -1,169 +1,26 @@
-import {FETCH_DATA_ERROR, FETCH_DATA_PENDING, FETCH_DATA_SUCCESS, FETCH_USER_DATA} from './actions';
-import theBestAuthors from '../photo/imgonline-com-ua-Resize-9HJl3wB5C1WcXd0.jpg'
+import {
+    FETCH_DATA_ERROR,
+    FETCH_DATA_PENDING,
+    FETCH_INTERESTING_DATA_SUCCESS,
+    FETCH_THE_BEST_AUTHORS_DATA_SUCCESS,
+    FETCH_HOT_FEED_DATA_SUCCESS,
+    FETCH_YOUR_AUTHORS_SUCCESS,
+    FETCH_USER_DATA
+} from './actions';
 
 const initialState = {
 
-    data: [],// FROM FETCH
+    data: {
+        theBestAuthors: [],
+        hotFeed: [],
+        yourAuthors: []
+    },// From fetch
 
-    // interestingCardFeed: [
-    //     {
-    //         cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-    //         name: 'Something Goood',
-    //     },
-    //     {
-    //         cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-    //         name: 'Something Goood',
-    //     },
-    //     {
-    //         cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-    //         name: 'Something Goood',
-    //     },
-    //     {
-    //         cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-    //         name: 'Something Goood',
-    //     },
-    //     {
-    //         cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-    //         name: 'Something Goood',
-    //     },
-    //     {
-    //         cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-    //         name: 'Something Goood',
-    //     },
-    //     {
-    //         cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-    //         name: 'Something Goood',
-    //     },
-    //     {
-    //         cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-    //         name: 'Something Goood',
-    //     },
-    //     {
-    //         cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-    //         name: 'Something Goood',
-    //     },
-    //     {
-    //         cover: 'https://sun1-18.userapi.com/c854124/v854124752/a4596/ChKUX6Q96OI.jpg',
-    //         name: 'Something Goood',
-    //     },
-    // ],
-    TheBestAuthors: [
-
-        {
-            author: 'Victor',
-            cover: theBestAuthors,
-        },
-        {
-            author: 'Victor',
-            cover: theBestAuthors,
-        },
-        {
-            author: 'Victor',
-            cover: theBestAuthors,
-        },
-        {
-            author: 'Victor',
-            cover: theBestAuthors,
-        },
-        {
-            author: 'Victor',
-            cover: theBestAuthors,
-        },
-        {
-            author: 'Victor',
-            cover: theBestAuthors,
-        },
-        {
-            author: 'Victor',
-            cover: theBestAuthors,
-        },
-    ],
-    // urAuthors: [
-    //
-    //     {
-    //         author: 'Andrei',
-    //         cover: theBestAuthors,
-    //     },
-    //     {
-    //         author: 'Andrei',
-    //         cover: theBestAuthors,
-    //     },
-    //     {
-    //         author: 'Andrei',
-    //         cover: theBestAuthors,
-    //     },
-    //     {
-    //         author: 'Andrei',
-    //         cover: theBestAuthors,
-    //     },
-    //     {
-    //         author: 'Andrei',
-    //         cover: theBestAuthors,
-    //     },
-    //     {
-    //         author: 'Andrei',
-    //         cover: theBestAuthors,
-    //     },
-    //     {
-    //         author: 'Andrei',
-    //         cover: theBestAuthors,
-    //     },
-    // ],
-    // HotFeed: [
-    //     {
-    //         massage: 'Fuck Text',
-    //         cover: hotFeedPhoto,
-    //     },
-    //     {
-    //         massage: 'Fuck Text',
-    //         cover: hotFeedPhoto,
-    //     },
-    //     {
-    //         massage: 'Fuck Text',
-    //         cover: hotFeedPhoto,
-    //     },
-    //     {
-    //         massage: 'Fuck Text',
-    //         cover: hotFeedPhoto,
-    //     },
-    //     {
-    //         massage: 'Fuck Text',
-    //         cover: hotFeedPhoto,
-    //     },
-    //     {
-    //         massage: 'Fuck Text',
-    //         cover: hotFeedPhoto,
-    //     },
-    //     {
-    //         massage: 'Fuck Text',
-    //         cover: hotFeedPhoto,
-    //     },
-    //     {
-    //         massage: 'Fuck Text',
-    //         cover: hotFeedPhoto,
-    //     },
-    //     {
-    //         massage: 'Fuck Text',
-    //         cover: hotFeedPhoto,
-    //     },
-    //     {
-    //         massage: 'Fuck Text',
-    //         cover: hotFeedPhoto,
-    //     },
-    //     {
-    //         massage: 'Fuck Text',
-    //         cover: hotFeedPhoto,
-    //     },
-    //     {
-    //         massage: 'Fuck Text',
-    //         cover: hotFeedPhoto,
-    //     },
-    // ],
     pending: false,
     isAuth: false,
     userData: {},
-    user: {},
-    error: [],
+    user: {}, //From fetch
+    error: []
 }
 
 export default function myReducer(state = initialState, action) {
@@ -174,14 +31,39 @@ export default function myReducer(state = initialState, action) {
                 ...state,
                 pending: true
             }
-
-        case FETCH_DATA_SUCCESS:
+        case FETCH_INTERESTING_DATA_SUCCESS:
             return {
                 ...state,
-                ...state.data,
-                data: state.data.concat(action.data),
+                data: {
+                    ...state.data,
+                    interesting: action.interesting
+                }
             }
-
+        case FETCH_THE_BEST_AUTHORS_DATA_SUCCESS:
+            return {
+                ...state,
+                data: {
+                    ...state.data,
+                    theBestAuthors: action.theBestAuthors
+                }
+            }
+        case FETCH_YOUR_AUTHORS_SUCCESS:
+            console.log(action.yourAuthors)
+            return {
+                ...state,
+                data: {
+                    ...state.data,
+                    yourAuthors: action.yourAuthors
+                }
+            }
+        case FETCH_HOT_FEED_DATA_SUCCESS:
+            return {
+                ...state,
+                data: {
+                    ...state.data,
+                    hotFeed: action.hotFeed
+                }
+            }
         case FETCH_DATA_ERROR:
             return {
                 ...state,
@@ -194,7 +76,6 @@ export default function myReducer(state = initialState, action) {
                 userData: action.userData.user,
                 isAuth: action.userData.authenticated
             }
-
         default:
             return state;
     }

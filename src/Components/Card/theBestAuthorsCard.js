@@ -9,8 +9,8 @@ const handleCard = card => {
 const TheBestAuthorCard = props => {
     return (
         <div>
-            {props.TheBestAuthors !== undefined && props.TheBestAuthors.theBestAuthors !== undefined &&
-            props.TheBestAuthors.theBestAuthors.map((content, index) => {
+            {props.TheBestAuthors !== undefined &&
+            props.TheBestAuthors.map((content, index) => {
                 return (
                     <NavLink
                         to={'/profile'}
