@@ -25,6 +25,6 @@ export function fetchDataError(error) {
 export function fetchUserDataSuccess(userData) {
     return {
         type: FETCH_USER_DATA,
-        data: userData
+        userData: userData
     }
 }

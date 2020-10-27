@@ -191,8 +191,8 @@ export default function myReducer(state = initialState, action) {
         case FETCH_USER_DATA:
             return {
                 ...state,
-                userData: action.data.user,
-                isAuth: action.data.authenticated
+                userData: action.userData.user,
+                isAuth: action.userData.authenticated
             }
 
         default:
