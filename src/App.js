@@ -40,7 +40,6 @@ class App extends React.Component {
         this.props.fetchData("interesting");
         this.props.fetchData("hotFeed");
         this.props.fetchData("theBestAuthors");
-        console.log("User data from state: ", this.props.state.userData);
     }
 
     render() {
