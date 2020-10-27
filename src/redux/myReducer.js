@@ -25,6 +25,14 @@ const initialState = {
 
 export default function myReducer(state = initialState, action) {
     switch (action.type) {
+        case FETCH_USER_DATA:
+            console.log(action)
+            return {
+                ...state,
+                ...state.userData,
+                userData: action.userData,
+                isAuth: action.isAuth
+            }
 
         case FETCH_DATA_PENDING:
             return {
@@ -70,13 +78,6 @@ export default function myReducer(state = initialState, action) {
                 error: action.error
             }
 
-        case FETCH_USER_DATA:
-            console.log(action)
-            return {
-                ...state,
-                userData: action.userData,
-                isAuth: action.isAuth
-            }
         default:
             return state;
     }
