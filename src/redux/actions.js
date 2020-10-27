@@ -1,6 +1,7 @@
 export const FETCH_DATA_SUCCESS = 'FETCH_PRODUCTS_SUCCESS';
 export const FETCH_DATA_ERROR = 'FETCH_PRODUCTS_ERROR';
 export const FETCH_DATA_PENDING = 'FETCH_DATA_PENDING';
+export const FETCH_USER_DATA = 'FETCH_DATA_PENDING';
 
 export function fetchDataPending() {
     return {
@@ -19,5 +20,11 @@ export function fetchDataError(error) {
     return {
         type: FETCH_DATA_ERROR,
         error: error
+    }
+}
+export function fetchUserDataSuccess(userData) {
+    return {
+        type: FETCH_USER_DATA,
+        data: userData
     }
 }

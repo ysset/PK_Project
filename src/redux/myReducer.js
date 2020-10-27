@@ -1,5 +1,4 @@
-import {FETCH_DATA_ERROR, FETCH_DATA_PENDING, FETCH_DATA_SUCCESS} from './actions';
-import hotFeedPhoto from '../photo/imgonline-com-ua-Resize-pZFnDYxCz6cjI63.jpg'
+import {FETCH_DATA_ERROR, FETCH_DATA_PENDING, FETCH_DATA_SUCCESS, FETCH_USER_DATA} from './actions';
 import theBestAuthors from '../photo/imgonline-com-ua-Resize-9HJl3wB5C1WcXd0.jpg'
 
 const initialState = {
@@ -162,7 +161,8 @@ const initialState = {
     // ],
     pending: false,
     isAuth: false,
-    user:{},
+    userData: {},
+    user: {},
     error: [],
 }
 
@@ -186,6 +186,13 @@ export default function myReducer(state = initialState, action) {
             return {
                 ...state,
                 error: action.error
+            }
+
+        case FETCH_USER_DATA:
+            return {
+                ...state,
+                userData: action.data.user,
+                isAuth: action.data.authenticated
             }
 
         default:

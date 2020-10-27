@@ -27,36 +27,16 @@ class App extends React.Component {
     }
 
     componentDidMount = () => {
-        fetch("http://pk.hitmarker.pro/api/auth/login/success", {
+        const whatFetch = "/auth/login/success"
+        const options = {
             method: "GET",
             credentials: "include",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
             }
-        })
-            .then(res =>{
-                if(res.status === 200) {
-                    console.log("res",res )
-                    console.log("res",res.json())
-                    return res.json()
-                };
-                throw new Error("Fail");
-            })
-            .then(res => {
-                this.setState({
-                    authenticated: true,
-                    user: res.user
-                });
-                console.log(this.state.user)
-            })
-            .catch(err => {
-                this.setState({
-                    authenticated: false,
-                    err: err
-                });
-                console.log("err", this.state.err)
-            });
+        }
+        this.props.fetchData(whatFetch, options)
         this.props.fetchData("interesting");
         this.props.fetchData("hotFeed");
         this.props.fetchData("theBestAuthors");
