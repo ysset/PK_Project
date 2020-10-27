@@ -71,6 +71,7 @@ export default function myReducer(state = initialState, action) {
             }
 
         case FETCH_USER_DATA:
+            console.log(action)
             return {
                 ...state,
                 userData: action.userData,

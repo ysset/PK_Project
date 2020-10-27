@@ -20,10 +20,7 @@ function fetchData(whatFetch, options) {
                 if (res.yourAuthor !== undefined) dispatch(fetchYourAuthorsDataSuccess(res.yourAuthor));
                 if (res.user !== undefined) {
                     console.log("User data: ", res.user)
-                    dispatch(fetchUserDataSuccess({
-                        user: res.user,
-                        authenticated: true,
-                    }))
+                    dispatch(fetchUserDataSuccess(res.user,true))
                 }
                 return res;
             })

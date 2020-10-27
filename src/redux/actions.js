@@ -45,6 +45,7 @@ export function fetchDataError(error) {
     }
 }
 export function fetchUserDataSuccess(userData, isAuth) {
+    console.log("User data in action", userData)
     return {
         type: FETCH_USER_DATA,
         userData: userData,
