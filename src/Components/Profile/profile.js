@@ -46,7 +46,7 @@ const Profile = props => {
                 <Box className={classes.rootHatBox}>
                     <Box className={classes.boxHatLogo}>
                         <img className={classes.hatLogo}
-                            src={props.state.userData.hatProfileCover}
+                            src={props.state.userData !== undefined && props.state.userData.hatProfileCover}
                             alt={"Author hatLogo"}/>
                     </Box>
                     <Grid
@@ -57,7 +57,7 @@ const Profile = props => {
                         alignItems="center"
                     >
                     <img className={classes.userLogo}
-                         src={props.state.userData.cover}
+                         src={props.state.userData !== undefined && props.state.userData.cover}
                          alt={"User logo"}/>
                     </Grid>
 
@@ -74,7 +74,7 @@ const Profile = props => {
                                 textDecoration: "none"
                             }}
                             to={"/createArt"}>
-                            {props.state.isAuth &&
+                            {/*{props.state.isAuth &&*/}
                                 <Button variant={"contained"}
                                         color={"primary"}
                                         style={{
@@ -83,16 +83,15 @@ const Profile = props => {
                                         }}>
                                     Add new art
                                 </Button>
-                            }
+                            {/*}*/}
                         </Link>
                     </Grid>
                     <Grid>
                         <h2 style={{color: "white"}}>
-                            {props.state.userData.displayName}
+                            {props.state.userData !== undefined && props.state.userData.displayName}
                         </h2>
                     </Grid>
                 </Grid>
-
                 <ProfileContentCard/>
             </Container>
         </>

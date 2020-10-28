@@ -12,17 +12,18 @@ const InterestingCard = props => {
     const useStyles = makeStyles(() => ({
         root: {
             flexGrow: 1,
+            height: 200,
         },
         paper: {
             textAlign: 'center',
-            maxWidth: 150,
-            maxHeight: 160,
-            marginTop: 10
+            width: 150,
+            height: 180,
+            borderRadius: 10,
         },
         img: {
             borderRadius: 5,
-            width: '100%',
-            height: '100%',
+            width: 150,
+            height: 180,
             objectFit: "cover",
         }
     }));
@@ -30,7 +31,6 @@ const InterestingCard = props => {
     const classes = useStyles();
     return (
         <div style={{
-            minHeight: 160,
         }}>
             <Grid
                 container

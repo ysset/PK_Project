@@ -6,7 +6,6 @@ import fetchData from "../../redux/fetch";
 import {connect} from "react-redux";
 
 const ProfileContentCard = props => {
-    console.log("User Cards",props.state.userData.usersCards)
 
     return (
         <Grid
@@ -15,7 +14,7 @@ const ProfileContentCard = props => {
             justify="space-around"
             alignItems="center"
         >
-            {props.state.userData.usersCards !== undefined && props.state.userData.usersCards.video.map(videoArts => {
+            {props.state.userData !== undefined && props.state.userData !== {} && props.state.userData.usersCards !== [] && props.state.userData.usersCards.video.map(videoArts => {
                 return (
                     <Grid
                         style={{
@@ -59,7 +58,7 @@ const ProfileContentCard = props => {
                     </Grid>
                 )
             })}
-            {props.state.userData.usersCards !== undefined && props.state.userData.usersCards.photo.map(photoArts => {
+            {props.state.userData !== undefined && props.state.userData !== {} && props.state.userData.usersCards !== [] && props.state.userData.usersCards.photo.map(photoArts => {
                 return (
                     <Grid
                         style={{
@@ -103,7 +102,7 @@ const ProfileContentCard = props => {
                     </Grid>
                 )
             })}
-            {props.state.userData.usersCards !== undefined && props.state.userData.usersCards.text.map(textArts => {
+            {props.state.userData !== undefined && props.state.userData !== {} && props.state.userData.usersCards !== [] && props.state.userData.usersCards.text.map(textArts => {
                 return (
                     <Grid
                         style={{
