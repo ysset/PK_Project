@@ -12,6 +12,7 @@ import AppBar from "./Components/AppBar/AppBar";
 import Interesting from "./Components/Intersting/interesting";
 import TheBestAuthors from "./Components/TheBestAuthors/TheBestAuthors";
 import UrAuthors from "./Components/urAuthors/UrAuthors";
+import createArtButton from "./Components/Profile/createArtButton/createArtButton";
 import {Grid} from "@material-ui/core";
 import HotFeed from "./Components/HotFeed/HotFeed";
 import Profile from "./Components/Profile/profile";
@@ -83,6 +84,7 @@ class App extends React.Component {
                                     >
                                         <Route exact path={'/'} component={TheBestAuthors}/>
                                         <Route exact path={'/'} component={UrAuthors}/>
+                                        <Route exact path={'/createArt'} component={createArtButton}/>
                                     </Grid>
                                 </Grid>
                             </div>

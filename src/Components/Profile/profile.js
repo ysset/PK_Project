@@ -1,9 +1,11 @@
 import React from 'react';
 import {Container, Grid, IconButton} from "@material-ui/core";
-import Box from "@material-ui/core/Box";
-import TextField from "@material-ui/core/TextField";
+import Box from "@material-ui/core/Box"
+import createArtButton from "./createArtButton/createArtButton";
 import {makeStyles} from "@material-ui/core/styles";
 import ProfileContentCard from "../Card/profileContentCard";
+import Button from "@material-ui/core/Button";
+import {Link} from "react-router-dom";
 
 const useStiles = makeStyles((theme) => ({
     rootHatBox: {
@@ -17,10 +19,6 @@ const useStiles = makeStyles((theme) => ({
         borderRadius: 10,
         background: "black",
     },
-    boxSiteLogo:{
-        position:"absolute",
-        zIndex:2,
-    },
     userLogo: {
         background: "black",
         maxWidth: 200,
@@ -33,20 +31,6 @@ const useStiles = makeStyles((theme) => ({
         borderRadius: 10,
         height: 200,
     },
-    rootContentGrid: {
-        width:"33%",
-        height: 175,
-    },
-    boxImageContent: {
-        paddingTop: 15,
-        paddingRight: 40,
-    },
-    imgContent: {
-        width: 125,
-        height: 150,
-        background: "black",
-        borderRadius: 20,
-    }
 }))
 
 const Profile = () => {
@@ -75,7 +59,17 @@ const Profile = () => {
                     </Grid>
                 </Box>
                 <Grid >
-                    <TextField className={"Author text field"}/>
+                    <Link
+                        style={{
+                            color: "white",
+
+                        }}
+                        to={"/createArt"}>
+                        <Button>
+                            Add new art
+                        </Button>
+                    </Link>
+
                 </Grid>
                 <ProfileContentCard/>
             </Container>
