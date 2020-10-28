@@ -26,6 +26,9 @@ const CreateArtButton = props => {
             const formData = new FormData()
             formData.append('cover', image)
             await axios.post(url, formData)
+                .then(res => {
+                    console.log(res.data.secureUrl)
+                })
         } catch (err) {
             console.error(err);
         }
