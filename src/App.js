@@ -84,8 +84,8 @@ class App extends React.Component {
                                     >
                                         <Route exact path={'/'} component={TheBestAuthors}/>
                                         <Route exact path={'/'} component={UrAuthors}/>
-                                        <Route exact path={'/createArt'} component={createArtButton}/>
                                     </Grid>
+                                        <Route exact path={'/createArt'} component={createArtButton}/>
                                 </Grid>
                             </div>
                             <Route path={'/profile'} component={Profile}/>

@@ -61,10 +61,15 @@ const Profile = () => {
                     <Link
                         style={{
                             color: "white",
-
+                            textDecoration: "none"
                         }}
                         to={"/createArt"}>
-                        <Button>
+                        <Button variant={"contained"}
+                                color={"primary"}
+                                style={{
+                                    marginTop: 10,
+                                    color: "white"
+                                }}>
                             Add new art
                         </Button>
                     </Link>

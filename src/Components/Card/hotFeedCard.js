@@ -3,6 +3,8 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import {NavLink} from "react-router-dom";
+import Image from "cloudinary-react";
+import Transformation from "cloudinary-react";
 
 const handleCard = props => {
     console.log(props.index)
@@ -25,6 +27,7 @@ const HotFeedCard = props => {
             borderRadius: 5,
             width: '100%',
             height: '100%',
+            objectFit: "cover",
         }
     }));
 
@@ -55,7 +58,7 @@ const HotFeedCard = props => {
                                 key={index}
                             >
                                 <Paper className={classes.paper}>
-                                    <img alt={'interesting line'} src={content.coverUrl} className={classes.img}/>
+                                    <img alt={'interesting line'} src={content.coverForHotFeedUrl} className={classes.img}/>
                                 </Paper>
                                 <h3 style={{
                                     margin: 0,

@@ -11,6 +11,7 @@ const TheBestAuthorCard = props => {
         <div>
             {props.TheBestAuthors !== undefined &&
             props.TheBestAuthors.map((content, index) => {
+                console.log(content)
                 return (
                     <NavLink
                         to={'/profile'}
@@ -37,6 +38,7 @@ const TheBestAuthorCard = props => {
                                 style={{
                                     width: '100%',
                                     height: '100%',
+                                    objectFit: "cover",
                                     position: "absolute",
                                     borderRadius: 5
                                 }}/>
