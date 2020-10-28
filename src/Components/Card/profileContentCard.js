@@ -1,36 +1,12 @@
 import React from "react";
 import {Grid, Box} from "@material-ui/core";
+import {getState} from "../../redux/myReducer";
+import {bindActionCreators} from "redux";
+import fetchData from "../../redux/fetch";
+import {connect} from "react-redux";
 
-const ProfileContentCard = () => {
-    const state ={
-        video: [
-            {
-                name: "Name", //Text
-                coverUrl: "https://res-console.cloudinary.com/dbhjalp68/thumbnails/v1/image/upload/v1603372282/YmdndHRlcHR6cWptdmtsNHdqMWs=/preview", //URL
-                artId: "", //Art URL
-                like: "15", //Number
-                date: "18.02.2002", //Date
-            }
-        ],
-        photo: [
-            {
-                name: "Name", //Text
-                coverUrl: "https://res-console.cloudinary.com/dbhjalp68/thumbnails/v1/image/upload/v1603372282/YmdndHRlcHR6cWptdmtsNHdqMWs=/preview", //URL
-                artId: "", //Art URL
-                like: "15", //Number
-                date: "18.02.2002", //Date
-            }
-        ],
-        text: [
-            {
-                name: "Name", //Text
-                coverUrl: "https://res-console.cloudinary.com/dbhjalp68/thumbnails/v1/image/upload/v1603372282/YmdndHRlcHR6cWptdmtsNHdqMWs=/preview", //URL
-                artId: "", //Art URL
-                like: "15", //Number
-                date: "18.02.2002", //Date
-            },
-        ],
-    }
+const ProfileContentCard = props => {
+    console.log("User Cards",props.state.userData.usersCards)
 
     return (
         <Grid
@@ -39,7 +15,7 @@ const ProfileContentCard = () => {
             justify="space-around"
             alignItems="center"
         >
-            {state.video !== undefined && state.video.map(videoArts => {
+            {props.state.userData.usersCards !== undefined && props.state.userData.usersCards.video.map(videoArts => {
                 return (
                     <Grid
                         style={{
@@ -83,7 +59,7 @@ const ProfileContentCard = () => {
                     </Grid>
                 )
             })}
-            {state.photo !== undefined && state.photo.map(photoArts => {
+            {props.state.userData.usersCards !== undefined && props.state.userData.usersCards.photo.map(photoArts => {
                 return (
                     <Grid
                         style={{
@@ -127,7 +103,7 @@ const ProfileContentCard = () => {
                     </Grid>
                 )
             })}
-            {state.text !== undefined && state.text.map(textArts => {
+            {props.state.userData.usersCards !== undefined && props.state.userData.usersCards.text.map(textArts => {
                 return (
                     <Grid
                         style={{
@@ -174,4 +150,17 @@ const ProfileContentCard = () => {
         </Grid>
     )
 }
-export default ProfileContentCard
+
+const mapStateToProps = state => ({
+    state: getState(state)
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    //any async func :)
+    fetchData: fetchData,
+}, dispatch)
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ProfileContentCard);

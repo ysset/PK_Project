@@ -49,7 +49,6 @@ class App extends React.Component {
                 <React.Fragment>
                     <CssBaseline/>
                     <Switch>
-
                         <Box style={{
                             minHeight: '100vh',
                             height: '100%',

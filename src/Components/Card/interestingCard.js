@@ -29,7 +29,9 @@ const InterestingCard = props => {
 
     const classes = useStyles();
     return (
-        <div>
+        <div style={{
+            minHeight: 160,
+        }}>
             <Grid
                 container
                 direction={"row"}

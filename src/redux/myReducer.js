@@ -18,8 +18,8 @@ const initialState = {
 
     pending: false,
     isAuth: false,
-    userData: {},
-    user: {}, //From fetch
+    userData: {}, //From fetch
+    user: {},
     error: []
 }
 
@@ -29,8 +29,10 @@ export default function myReducer(state = initialState, action) {
             console.log(action)
             return {
                 ...state,
-                ...state.userData,
-                userData: action.userData,
+                userData: {
+                    ...state.userData,
+                    userData: action.userData,
+                },
                 isAuth: action.isAuth
             }
 

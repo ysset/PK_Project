@@ -5,6 +5,10 @@ import {makeStyles} from "@material-ui/core/styles";
 import ProfileContentCard from "../Card/profileContentCard";
 import Button from "@material-ui/core/Button";
 import {Link} from "react-router-dom";
+import {getState} from "../../redux/myReducer";
+import {bindActionCreators} from "redux";
+import fetchData from "../../redux/fetch";
+import {connect} from "react-redux";
 
 const useStiles = makeStyles((theme) => ({
     rootHatBox: {
@@ -20,8 +24,8 @@ const useStiles = makeStyles((theme) => ({
     },
     userLogo: {
         background: "black",
-        maxWidth: 200,
-        maxHeight: 200,
+        width: 200,
+        height: 200,
         borderRadius: 20,
         justifyContent: "flex-end",
     },
@@ -29,22 +33,22 @@ const useStiles = makeStyles((theme) => ({
         width: "100%",
         borderRadius: 10,
         height: 200,
+        objectFit: "cover"
     },
 }))
 
-const Profile = () => {
+const Profile = props => {
     const classes = useStiles()
-
+    console.log(props.state.userData)
     return (
         <>
             <Container>
                 <Box className={classes.rootHatBox}>
                     <Box className={classes.boxHatLogo}>
                         <img className={classes.hatLogo}
-                            src={"https://res-console.cloudinary.com/dbhjalp68/thumbnails/v1/image/upload/v1603372282/YmdndHRlcHR6cWptdmtsNHdqMWs=/preview"}
+                            src={props.state.userData.hatProfileCover}
                             alt={"Author hatLogo"}/>
                     </Box>
-
                     <Grid
                         style={{position:"absolute"}}
                         container
@@ -53,32 +57,59 @@ const Profile = () => {
                         alignItems="center"
                     >
                     <img className={classes.userLogo}
-                         src={"https://res-console.cloudinary.com/dbhjalp68/thumbnails/v1/image/upload/v1603372282/YmdndHRlcHR6cWptdmtsNHdqMWs=/preview"}
+                         src={props.state.userData.cover}
                          alt={"User logo"}/>
                     </Grid>
-                </Box>
-                <Grid >
-                    <Link
-                        style={{
-                            color: "white",
-                            textDecoration: "none"
-                        }}
-                        to={"/createArt"}>
-                        <Button variant={"contained"}
-                                color={"primary"}
-                                style={{
-                                    marginTop: 10,
-                                    color: "white"
-                                }}>
-                            Add new art
-                        </Button>
-                    </Link>
 
+                </Box>
+                <Grid
+                    container
+                    direction="row"
+                    justify="space-between"
+                    alignItems="center">
+                    <Grid>
+                        <Link
+                            style={{
+                                color: "white",
+                                textDecoration: "none"
+                            }}
+                            to={"/createArt"}>
+                            {props.state.isAuth &&
+                                <Button variant={"contained"}
+                                        color={"primary"}
+                                        style={{
+                                            marginTop: 10,
+                                            color: "white"
+                                        }}>
+                                    Add new art
+                                </Button>
+                            }
+                        </Link>
+                    </Grid>
+                    <Grid>
+                        <h2 style={{color: "white"}}>
+                            {props.state.userData.displayName}
+                        </h2>
+                    </Grid>
                 </Grid>
+
                 <ProfileContentCard/>
             </Container>
         </>
     )
 }
 
-export default Profile
+
+const mapStateToProps = state => ({
+    state: getState(state)
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    //any async func :)
+    fetchData: fetchData,
+}, dispatch)
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Profile);
