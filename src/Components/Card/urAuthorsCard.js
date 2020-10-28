@@ -33,7 +33,7 @@ const UrAuthorsCard = props => {
                             }}>
                             <img
                                 alt={'your authors'}
-                                src={content.cover}
+                                src={content.coverUrl}
                                 style={{
                                     width: '100%',
                                     height: '100%',

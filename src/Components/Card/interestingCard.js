@@ -58,7 +58,7 @@ const InterestingCard = props => {
                                 }}
                             >
                                 <Paper className={classes.paper}>
-                                    <img alt={'interesting line'} src={content.cover} className={classes.img}/>
+                                    <img alt={'interesting line'} src={content.coverUrl} className={classes.img}/>
                                 </Paper>
                                 <h3 style={{
                                     color: "white",

@@ -34,7 +34,7 @@ const TheBestAuthorCard = props => {
                             }}>
                             <img
                                 alt={'The best authors'}
-                                src={content.cover}
+                                src={content.coverUrl}
                                 style={{
                                     width: '100%',
                                     height: '100%',

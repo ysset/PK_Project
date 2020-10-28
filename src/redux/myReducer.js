@@ -29,10 +29,8 @@ export default function myReducer(state = initialState, action) {
             console.log(action)
             return {
                 ...state,
-                userData: {
-                    ...state.userData,
-                    userData: action.userData,
-                },
+                ...state.userData,
+                userData: action.userData,
                 isAuth: action.isAuth
             }
 
