@@ -22,8 +22,9 @@ const CreateArtButton = props => {
 
     const onSubmit = async () => {
         try {
-            console.log(image)
-            await axios.post(url, image);
+            const formData = new FormData()
+            formData.append('cover', image)
+            await axios.post(url, formData);
         } catch (err) {
             console.error(err);
         }

@@ -1,7 +1,6 @@
 import React from 'react';
 import {Container, Grid, IconButton} from "@material-ui/core";
 import Box from "@material-ui/core/Box"
-import createArtButton from "./createArtButton/createArtButton";
 import {makeStyles} from "@material-ui/core/styles";
 import ProfileContentCard from "../Card/profileContentCard";
 import Button from "@material-ui/core/Button";
